@@ -5,6 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="240" d:DesignHeight=""
         x:Class="SharpCalculator.MainWindow"
         Title="SharpCalculator"
+        Icon="avares://SharpCalculator/Assets/calculator.png"
         Width="240" Height=""
         Background="#09050a"
         FontFamily="Inter, Cantarell, Segoe UI, DejaVu Sans, sans-serif"

@@ -7,7 +7,7 @@
         Title="SharpCalculator"
         Icon="avares://SharpCalculator/Assets/calculator.png"
         Width="240" Height=""
-        Background="#09050a"
+        Background="{DynamicResource WindowBackground}"
         FontFamily="Inter, Cantarell, Segoe UI, DejaVu Sans, sans-serif"
         SizeToContent="Height"
         CanResize="False">
@@ -19,12 +19,13 @@
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
                         <Setter Property="CornerRadius" Value="10"/>
-                        <Setter Property="Background" Value="#1f1520"/>
-                        <!-- <Setter Property="FontFamily" Value="Cantarell"/> -->
-                        <Setter Property="FontSize" Value="20"></Setter>
+                        <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonText}"/>
+                        <Setter Property="FontSize" Value="20"/>
                 </Style>
                 <Style Selector="Button.operator">
-                        <Setter Property="Background" Value="#342936"></Setter>
+                        <Setter Property="Background" Value="{DynamicResource OperatorBackground}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource OperatorText}"/>
                 </Style>
         </Window.Styles>
     
@@ -32,12 +33,11 @@
                 <Border Margin="1" CornerRadius="10">
                         <TextBox Margin="4" FontSize="25" HorizontalAlignment="Stretch" TextAlignment="Right" Text="0" 
                                  Name="MainTextBox" CornerRadius="10"
-                                 Background="#140e16"
+                                 Background="{DynamicResource TextBoxBackground}"
                                  BorderBrush="Transparent"
-                                 VerticalAlignment="Center"
-                                 />
+                                 VerticalAlignment="Center"/>
                 </Border>
-                <Border Background="#140e16">
+                <Border Background="{DynamicResource ButtonsBorderBackground}">
                         <Grid Margin="5" ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*,*,*" Height="270"
                               RowSpacing="3" ColumnSpacing="3">
                                 

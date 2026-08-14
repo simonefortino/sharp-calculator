@@ -7,4 +7,32 @@
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>
+             
+    <Application.Resources>
+     <ResourceDictionary>
+         <ResourceDictionary.ThemeDictionaries>
+
+             <ResourceDictionary x:Key="Dark">
+                 <SolidColorBrush x:Key="ButtonsBorderBackground" Color="#140e16"/>
+                 <SolidColorBrush x:Key="WindowBackground" Color="#09050a"/>
+                 <SolidColorBrush x:Key="TextBoxBackground" Color="#140e16"/>
+                 <SolidColorBrush x:Key="ButtonBackground" Color="#1f1520"/>
+                 <SolidColorBrush x:Key="ButtonText" Color="#FFFFFF"/>
+                 <SolidColorBrush x:Key="OperatorBackground" Color="#3a1c47"/>
+                 <SolidColorBrush x:Key="OperatorText" Color="#e082ff"/>
+             </ResourceDictionary>
+
+             <ResourceDictionary x:Key="Light">
+                 <SolidColorBrush x:Key="ButtonsBorderBackground" Color="#EBF1E9"/>
+                 <SolidColorBrush x:Key="WindowBackground" Color="#F3F3F3"/>
+                 <SolidColorBrush x:Key="TextBoxBackground" Color="#FFFFFF"/>
+                 <SolidColorBrush x:Key="ButtonBackground" Color="#E5E5E5"/>
+                 <SolidColorBrush x:Key="ButtonText" Color="#1A1A1A"/>
+                 <SolidColorBrush x:Key="OperatorBackground" Color="#E8D5F5"/>
+                 <SolidColorBrush x:Key="OperatorText" Color="#6B21A8"/>
+             </ResourceDictionary>
+
+         </ResourceDictionary.ThemeDictionaries>
+     </ResourceDictionary>
+    </Application.Resources>
 </Application>

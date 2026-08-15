@@ -31,6 +31,30 @@
         </Window.Styles>
         
         <StackPanel>
+                <Menu Height="25">
+                        <MenuItem Header="_File">
+                                <MenuItem Header="_Clear" Click="OnClearClick" InputGesture="Ctrl+L"/>
+                                <MenuItem Header="_Exit" Click="OnExitClick" InputGesture="Alt+F4"/>
+                        </MenuItem>
+                        <MenuItem Header="_Edit">
+                                <MenuItem Header="_Copy" Click="OnCopyClick" InputGesture="Ctrl+C"/>
+                                <MenuItem Header="_Paste" Click="OnPasteClick" InputGesture="Ctrl+V"/>
+                        </MenuItem>
+                        <MenuItem Header="_View">
+                                <MenuItem Header="_Theme">
+                                        <MenuItem Header="_Light theme" ToggleType="Radio" Click="OnLightThemeClick"/>
+                                        <MenuItem Header="_Dark theme" ToggleType="Radio" Click="OnDarkThemeClick"/>
+                                        <MenuItem Header="_Follow system" ToggleType="Radio" IsChecked="True" Click="OnFollowSystemClick"/>
+                                </MenuItem>
+                                <MenuItem Header="Toggle _always on top" ToggleType="CheckBox" Click="OnToggleAlwaysOnTopClick" InputGesture="Ctrl+O"/>
+                        </MenuItem>
+                        <MenuItem Header="_Help">
+                                <!-- TODO -->
+                                <MenuItem Header="View _shortcuts"/>
+                                <MenuItem Header="View _documentation"/>
+                        </MenuItem>
+                </Menu>
+                
                 <Border Margin="1" CornerRadius="10">
                         <TextBox Margin="4" FontSize="25" HorizontalAlignment="Stretch" TextAlignment="Right" Text="0" 
                                  Name="MainTextBox" CornerRadius="10"

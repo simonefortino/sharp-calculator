@@ -13,6 +13,7 @@ Aug 14, 2026
 ### v1.2.0 (upcoming)
 Aug 15, 2026
 * Added support for keyboard keys (numbers, operators).
-* Added `Ctrl+T` shortcut to toggle between themes.
+* Added different shortcuts for common commands.
 * Updated light theme color palette for better contrast.
 * Added negative number insertion.
+* **New major feature**: added a top menu for easier access to commands and settings

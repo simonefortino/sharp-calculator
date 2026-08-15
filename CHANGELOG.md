@@ -15,3 +15,4 @@ Aug 15, 2026
 * Added support for keyboard keys (numbers, operators).
 * Added `Ctrl+T` shortcut to toggle between themes.
 * Updated light theme color palette for better contrast.
+* Added negative number insertion.

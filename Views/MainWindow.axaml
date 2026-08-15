@@ -29,7 +29,7 @@
                         <Setter Property="Foreground" Value="{DynamicResource OperatorText}"/>
                 </Style>
         </Window.Styles>
-    
+        
         <StackPanel>
                 <Border Margin="1" CornerRadius="10">
                         <TextBox Margin="4" FontSize="25" HorizontalAlignment="Stretch" TextAlignment="Right" Text="0" 

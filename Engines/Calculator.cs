@@ -1,4 +1,4 @@
-namespace SharpCalculator
+namespace SharpCalculator.Engines
 {
     public class Calculator
     {
@@ -9,6 +9,12 @@ namespace SharpCalculator
         // Gestisce la digitazione dei numeri
         public string PressNumber(string currentDisplayText, string numberPressed)
         {
+            if (currentDisplayText == "-")
+            {
+                _isNewEntry = false;
+                return "-" + numberPressed;
+            }
+
             if (_isNewEntry || currentDisplayText == "0")
             {
                 _isNewEntry = false;
@@ -21,6 +27,17 @@ namespace SharpCalculator
         // Gestisce la digitazione degli operatori (+, -, *, /)
         public string PressOperator(string currentDisplayText, string newOperation)
         {
+            if (newOperation == "-" && (_isNewEntry || currentDisplayText == "0"))
+            {
+                _isNewEntry = false;
+                return "-";
+            }
+
+            if (currentDisplayText == "-")
+            {
+                return currentDisplayText;
+            }
+
             double currentDisplayValue = double.Parse(currentDisplayText);
 
             // Se c'era già un'operazione in sospeso, esegui il calcolo intermedio
@@ -35,11 +52,10 @@ namespace SharpCalculator
 
             return currentDisplayValue.ToString("0.#####");
         }
-
-        // Gestisce la pressione del tasto '='
+        
         public string PressEquals(string currentDisplayText)
         {
-            if (_currentOperation == null) 
+            if (_currentOperation == null || currentDisplayText == "-") 
                 return currentDisplayText;
 
             double secondNumber = double.Parse(currentDisplayText);
@@ -51,7 +67,7 @@ namespace SharpCalculator
             return result.ToString("0.#####");
         }
 
-        // Resetta la calcolatrice (Tasto C / Clear)
+        // Calculator reset
         public string Clear()
         {
             _firstNumber = 0;
@@ -59,8 +75,7 @@ namespace SharpCalculator
             _isNewEntry = true;
             return "0";
         }
-
-        // Metodo privato di supporto per la matematica
+        
         private double ExecuteCalculation(double val1, double val2, string operation)
         {
             return operation switch
@@ -68,7 +83,7 @@ namespace SharpCalculator
                 "+" => val1 + val2,
                 "-" => val1 - val2,
                 "*" => val1 * val2,
-                "/" => val2 != 0 ? val1 / val2 : 0, // Evita la divisione per zero
+                "/" => val2 != 0 ? val1 / val2 : 0, // If the user tries to divide by 0 it returns 0
                 _ => val2
             };
         }

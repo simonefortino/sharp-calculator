@@ -3,8 +3,9 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Styling;
+using SharpCalculator.Engines;
 
-namespace SharpCalculator;
+namespace SharpCalculator.Views;
 
 public partial class MainWindow : Window
 {

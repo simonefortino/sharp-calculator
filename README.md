@@ -28,3 +28,6 @@ chmod +x SharpCalculator
 ```
 * **Linux self-contained executable**  
 Like the Windows one, you wont need any Runtime VM installed, just follow the steps for the [Linux standard executable (x64)](#linux-std)
+
+
+**To see all changes for past and upcoming releases see [CHANGELOG.md](CHANGELOG.md)**

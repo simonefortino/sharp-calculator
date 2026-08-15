@@ -91,7 +91,8 @@ public partial class MainWindow : Window
         switch (type)
         {
             case "NUMBER":
-                MainTextBox.Text = _calculator.PressNumber(MainTextBox.Text ?? "0", val);
+                if(!MainTextBox.IsFocused)
+                    MainTextBox.Text = _calculator.PressNumber(MainTextBox.Text ?? "0", val);
                 break;
             case "OPERATOR":
                 MainTextBox.Text = _calculator.PressOperator(MainTextBox.Text ?? "0", val);

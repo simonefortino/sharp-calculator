@@ -10,7 +10,8 @@
         Background="{DynamicResource WindowBackground}"
         FontFamily="Inter, Cantarell, Segoe UI, DejaVu Sans, sans-serif"
         SizeToContent="Height"
-        CanResize="False">
+        CanResize="False"
+        KeyDown="OnKeyDown">
         
         <Window.Styles>
                 <Style Selector="Button">
@@ -35,7 +36,8 @@
                                  Name="MainTextBox" CornerRadius="10"
                                  Background="{DynamicResource TextBoxBackground}"
                                  BorderBrush="Transparent"
-                                 VerticalAlignment="Center"/>
+                                 VerticalAlignment="Center"
+                                 IsInactiveSelectionHighlightEnabled="False"/>
                 </Border>
                 <Border Background="{DynamicResource ButtonsBorderBackground}">
                         <Grid Margin="5" ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*,*,*" Height="270"

@@ -23,13 +23,13 @@
              </ResourceDictionary>
 
              <ResourceDictionary x:Key="Light">
-                 <SolidColorBrush x:Key="ButtonsBorderBackground" Color="#EBF1E9"/>
-                 <SolidColorBrush x:Key="WindowBackground" Color="#F3F3F3"/>
+                 <SolidColorBrush x:Key="ButtonsBorderBackground" Color="#C2D1C0"/>
+                 <SolidColorBrush x:Key="WindowBackground" Color="#E8E8E8"/>
                  <SolidColorBrush x:Key="TextBoxBackground" Color="#FFFFFF"/>
-                 <SolidColorBrush x:Key="ButtonBackground" Color="#E5E5E5"/>
-                 <SolidColorBrush x:Key="ButtonText" Color="#1A1A1A"/>
-                 <SolidColorBrush x:Key="OperatorBackground" Color="#E8D5F5"/>
-                 <SolidColorBrush x:Key="OperatorText" Color="#6B21A8"/>
+                 <SolidColorBrush x:Key="ButtonBackground" Color="#D6D6D6"/>
+                 <SolidColorBrush x:Key="ButtonText" Color="#000000"/>
+                 <SolidColorBrush x:Key="OperatorBackground" Color="#D8B4FE"/>
+                 <SolidColorBrush x:Key="OperatorText" Color="#4C1D95"/>
              </ResourceDictionary>
 
          </ResourceDictionary.ThemeDictionaries>

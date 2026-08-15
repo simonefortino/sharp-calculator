@@ -5,6 +5,7 @@ namespace SharpCalculator.Engines
         private double _firstNumber = 0;
         private string? _currentOperation = null;
         private bool _isNewEntry = true;
+        private bool _isNewMinusSign = true;
 
         // Gestisce la digitazione dei numeri
         public string PressNumber(string currentDisplayText, string numberPressed)
@@ -20,16 +21,18 @@ namespace SharpCalculator.Engines
                 _isNewEntry = false;
                 return numberPressed;
             }
-
+            
+            _isNewMinusSign =  false;
+            
             return currentDisplayText + numberPressed;
         }
 
         // Gestisce la digitazione degli operatori (+, -, *, /)
         public string PressOperator(string currentDisplayText, string newOperation)
         {
-            if (newOperation == "-" && (_isNewEntry || currentDisplayText == "0"))
+            if (newOperation == "-" && (_isNewMinusSign || currentDisplayText == "0"))
             {
-                _isNewEntry = false;
+                _isNewMinusSign = false;
                 return "-";
             }
 
@@ -73,6 +76,7 @@ namespace SharpCalculator.Engines
             _firstNumber = 0;
             _currentOperation = null;
             _isNewEntry = true;
+            _isNewMinusSign = true;
             return "0";
         }
         

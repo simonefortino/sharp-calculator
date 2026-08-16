@@ -177,4 +177,10 @@ public partial class MainWindow : Window
     {
         Topmost = !Topmost;
     }
+
+    private void OnShowShortcutsClick(object? sender, RoutedEventArgs e)
+    {
+        var window = new ShortcutsWindow();
+        window.ShowDialog(this);
+    }
 }

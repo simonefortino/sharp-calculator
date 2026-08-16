@@ -11,6 +11,7 @@
         FontFamily="Inter, Cantarell, Segoe UI, DejaVu Sans, sans-serif"
         SizeToContent="Height"
         CanResize="False"
+        WindowStartupLocation="CenterScreen"
         KeyDown="OnKeyDown">
         
         <Window.Styles>
@@ -50,7 +51,7 @@
                         </MenuItem>
                         <MenuItem Header="_Help">
                                 <!-- TODO -->
-                                <MenuItem Header="View _shortcuts"/>
+                                <MenuItem Header="View _shortcuts" Click="OnShowShortcutsClick"/>
                                 <MenuItem Header="View _documentation"/>
                         </MenuItem>
                 </Menu>

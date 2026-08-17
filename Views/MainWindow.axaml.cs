@@ -1,6 +1,9 @@
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Input.Platform;
 using Avalonia.Interactivity;
 using Avalonia.Styling;
 using SharpCalculator.Engines;
@@ -52,10 +55,17 @@ public partial class MainWindow : Window
 
     private void OnKeyDown(object? sender, KeyEventArgs e)
     {
+        // if CTRL is being pressed
         if (e.KeyModifiers.HasFlag(KeyModifiers.Control))
         {
-            if(e.Key is Key.T)
-                ToggleTheme();
+            switch (e.Key)
+            {
+                case Key.T: ToggleTheme(); break;
+                case Key.L: OnClearClick(sender, e); break;
+                case Key.C: OnCopyClick(sender, e); break;
+                case Key.V: OnPasteClick(sender, e); break;
+                case Key.O: OnToggleAlwaysOnTopClick(sender, e); break;
+            }
                 
         }
         
@@ -91,7 +101,8 @@ public partial class MainWindow : Window
         switch (type)
         {
             case "NUMBER":
-                if(!MainTextBox.IsFocused)
+                // sends the number only when NUMLOCK is pressed
+                if (!string.IsNullOrEmpty(e.KeySymbol) && char.IsDigit(e.KeySymbol[0]))
                     MainTextBox.Text = _calculator.PressNumber(MainTextBox.Text ?? "0", val);
                 break;
             case "OPERATOR":
@@ -116,5 +127,88 @@ public partial class MainWindow : Window
             app.RequestedThemeVariant =  ThemeVariant.Light;
         else if (app.ActualThemeVariant == ThemeVariant.Light)
             app.RequestedThemeVariant = ThemeVariant.Dark;
-    }   
+    }
+
+    // FILE
+    private void OnExitClick(object? sender, RoutedEventArgs e)
+    {
+        Close();
+    }
+
+    // EDIT
+    private async void OnCopyClick(object? sender, RoutedEventArgs e)
+    {
+        if (Clipboard is not null && !string.IsNullOrEmpty(MainTextBox.Text))
+            await Clipboard.SetTextAsync(MainTextBox.Text);
+    }
+
+    private async void OnPasteClick(object? sender, RoutedEventArgs e)
+    {
+        if (Clipboard is not null)
+        {
+            // gets the text in the Clipboard
+            var text = await Clipboard.TryGetTextAsync();
+            
+            // if text is not null and it can be parsed to double, paste it in the MainTextBox
+            if (!string.IsNullOrEmpty(text) && double.TryParse(text, out _))
+                MainTextBox.Text = text;
+        }
+            
+    }
+
+    // VIEW
+    private void OnLightThemeClick(object? sender, RoutedEventArgs e)
+    {
+        var app = Application.Current;
+        app?.RequestedThemeVariant = ThemeVariant.Light;
+    }
+
+    private void OnDarkThemeClick(object? sender, RoutedEventArgs e)
+    {
+        var app = Application.Current;
+        app?.RequestedThemeVariant = ThemeVariant.Dark;
+    }
+
+    private void OnFollowSystemClick(object? sender, RoutedEventArgs e)
+    {
+        var app = Application.Current;
+        app?.RequestedThemeVariant = ThemeVariant.Default;
+    }
+
+    private void OnToggleAlwaysOnTopClick(object? sender, RoutedEventArgs e)
+    {
+        Topmost = !Topmost;
+    }
+
+    private void OnShowShortcutsClick(object? sender, RoutedEventArgs e)
+    {
+        var window = new ShortcutsWindow();
+        window.ShowDialog(this);
+    }
+
+    private void OnVisitGitHubClick(object? sender, RoutedEventArgs e)
+    {
+        string url = "https://github.com/simonefortino/sharp-calculator";
+        
+        try
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+        }
+        catch
+        {
+            // fallback for certain operating systems
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                Process.Start("xdg-open", url);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                Process.Start("open", url);
+            }
+        }
+    }
 }

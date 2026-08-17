@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="320" d:DesignHeight="215"
+        x:Class="SharpCalculator.Views.ShortcutsWindow"
+        Title="Keyboard shortcuts"
+        WindowStartupLocation="CenterOwner"
+        FontFamily="Inter, Cantarell, Segoe UI, DejaVu Sans, sans-serif"
+        CanResize="False"
+        Width="320" Height="215"
+        Background="{DynamicResource WindowBackground}">
+        
+        <Window.Styles>
+                <Style Selector="TextBlock">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="14"/>
+                </Style>
+                <Style Selector="TextBlock.key">
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Foreground" Value="Gray"/>
+
+                </Style>
+        </Window.Styles>
+
+        <Border Margin="15">
+                <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="10">
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Toggle Theme"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Ctrl + T" Classes="key"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Clear"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Ctrl + L / Backspace" Classes="key"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Copy"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Ctrl + C" Classes="key"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Paste"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Ctrl + V" Classes="key"/>
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Toggle &quot;Always on top&quot;"/>
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="Ctrl + O" Classes="key"/>
+
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="Exit"/>
+                        <TextBlock Grid.Row="5" Grid.Column="1" Text="Alt + F4" Classes="key"/>
+                        
+                        <Button Grid.Row="6" Grid.Column="1" Content="Close" HorizontalAlignment="Right" Click="OnCloseButton"/>
+                </Grid> 
+        </Border>
+</Window>

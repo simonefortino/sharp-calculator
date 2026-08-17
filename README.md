@@ -10,6 +10,8 @@ A simple, clean calculator built in C# with Avalonia UI.
 * Standard arithmetic operations (`+`, `-`, `*`, `/`)
 * Cross-platform support (Windows and Linux)
 * Clean UI with light and dark themes
+* Top bar menu for quick actions
+* Useful keyboard shortcuts
 
 ## Downloads & Installation
 

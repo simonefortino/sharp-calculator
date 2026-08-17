@@ -8,7 +8,7 @@
 * Added light theme support
 ---
 
-### v1.2.0 (upcoming)
+### v1.2.0
 * Added support for keyboard keys (numbers, operators).
 * Added different shortcuts for common commands.
 * Updated light theme color palette for better contrast.

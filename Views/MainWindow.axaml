@@ -52,7 +52,7 @@
                         <MenuItem Header="_Help">
                                 <!-- TODO -->
                                 <MenuItem Header="View _shortcuts" Click="OnShowShortcutsClick"/>
-                                <MenuItem Header="View _documentation"/>
+                                <MenuItem Header="Visit _github page" Click="OnVisitGitHubClick"/>
                         </MenuItem>
                 </Menu>
                 

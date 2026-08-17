@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -182,5 +184,31 @@ public partial class MainWindow : Window
     {
         var window = new ShortcutsWindow();
         window.ShowDialog(this);
+    }
+
+    private void OnVisitGitHubClick(object? sender, RoutedEventArgs e)
+    {
+        string url = "https://github.com/simonefortino/sharp-calculator";
+        
+        try
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+        }
+        catch
+        {
+            // fallback for certain operating systems
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                Process.Start("xdg-open", url);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                Process.Start("open", url);
+            }
+        }
     }
 }

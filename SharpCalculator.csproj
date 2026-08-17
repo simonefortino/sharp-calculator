@@ -27,6 +27,11 @@
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>
+    <ItemGroup>
+        <Compile Update="ShortcutsWindow.axaml.cs">
+            <DependentUpon>ShortcutsWindow.axaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
 
     <ItemGroup>
       <Folder Include="builds\" />
